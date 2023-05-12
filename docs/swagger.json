@@ -1,0 +1,465 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "demo",
+        "description": "demo apis"
+    },
+    "basePath": "/",
+    "schemes": ["http", "https"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+        
+        "/sendOtp": {
+            "post": {
+                "tags": ["Users"],
+                "summary": "Send Otp",
+                "description": "Send Otp",
+                "operationId": "sendOtp",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/HeaderVersion"
+                    },
+                    {
+                        "$ref": "#/parameters/HeaderLanguage"
+                    },
+                    {
+                        "$ref": "#/parameters/HeaderPlatform"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/sendOtp"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "add user type",
+                        "schema": {
+                            "$ref": "#/definitions/responsesOk"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected error.",
+                        "schema": {
+                            "$ref": "#/definitions/responsesError"
+                        }
+                    }
+                }
+            }
+        },
+        
+        "/verifyOtp": {
+            "post": {
+                "tags": ["Users"],
+                "summary": "verify otp",
+                "description": "verify",
+                "operationId": "verify",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/HeaderVersion"
+                    },
+                    {
+                        "$ref": "#/parameters/HeaderLanguage"
+                    },
+                    {
+                        "$ref": "#/parameters/HeaderPlatform"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/verifyOtp"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "add user type",
+                        "schema": {
+                            "$ref": "#/definitions/responsesOk"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected error.",
+                        "schema": {
+                            "$ref": "#/definitions/responsesError"
+                        }
+                    }
+                }
+            }
+        },
+        "/signup": {
+            "post": {
+                "tags": ["Users"],
+                "summary": "Signup",
+                "description": "Signup",
+                "operationId": "Signup",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/HeaderVersion"
+                    },
+                    {
+                        "$ref": "#/parameters/HeaderLanguage"
+                    },
+                    {
+                        "$ref": "#/parameters/HeaderPlatform"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/signup"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "add user type",
+                        "schema": {
+                            "$ref": "#/definitions/responsesOk"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected error.",
+                        "schema": {
+                            "$ref": "#/definitions/responsesError"
+                        }
+                    }
+                }
+            }
+        },
+        "/": {
+            "get": {
+                "tags": ["Users"],
+                "summary": "home",
+                "description": "home",
+                "operationId": "home",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/HeaderVersion"
+                    },
+                    {
+                        "$ref": "#/parameters/HeaderLanguage"
+                    },
+                    {
+                        "$ref": "#/parameters/HeaderPlatform"
+                    },
+                    {
+                        "$ref": "#/parameters/HeaderAuth"
+                    }
+                   
+                ],
+                "responses": {
+                    "200": {
+                        "description": "get home data",
+                        "schema": {
+                            "$ref": "#/definitions/responsesOk"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected error.",
+                        "schema": {
+                            "$ref": "#/definitions/responsesError"
+                        }
+                    }
+                }
+            }
+        }
+        
+    },
+    "definitions": {
+        "signup": {
+            "type": "object",
+            "properties": {
+                "userType": {
+                    "type": "string",
+                    "description": "userType",
+                    "example": "GROOM/BRIDE"
+                },
+                "phoneNumber": {
+                    "type": "string",
+                    "description": "phoneNumber",
+                    "example": "9985858585"
+                },
+                "countryCode": {
+                    "type": "string",
+                    "description": "countryCode",
+                    "example": "+91"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "name",
+                    "example": "Rahul Verma"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "email",
+                    "example": "hitesh"
+                },
+                "dob": {
+                    "type": "string",
+                    "description": "dob",
+                    "example": "2018-08-28T11:46:30.120"
+                },
+                "religion": {
+                    "type": "string",
+                    "description": "religion",
+                    "example": "Hindu"
+                },
+                "location": {
+                    "type": "string",
+                    "description": "location",
+                    "example": "jaipur rajasthan"
+                },
+                "maritalStatus": {
+                    "type": "string",
+                    "description": "maritalStatus",
+                    "example": "SINGLE/MARRIED"
+                },
+                "height": {
+                    "type": "string",
+                    "description": "height",
+                    "example": "123"
+                },
+                "cast": {
+                    "type": "string",
+                    "description": "cast",
+                    "example": "Hindu"
+                },
+                "birthStart": {
+                    "type": "string",
+                    "description": "birthStart",
+                    "example": "aswathy"
+                },
+                "education": {
+                    "type": "string",
+                    "description": "education",
+                    "example": "Computer science"
+                },
+                "job": {
+                    "type": "string",
+                    "description": "job",
+                    "example": "Engineer"
+                },
+                "bio": {
+                    "type": "string",
+                    "description": "bio",
+                    "example": "I am Developer"
+                },
+                "foodType": {
+                    "type": "string",
+                    "description": "foodType",
+                    "example": "NONVEGITERIAN/VEGITERIAN/BOTH"
+                },
+                "drinkType": {
+                    "type": "string",
+                    "description": "drinkType",
+                    "example": "hitesh"
+                },
+                "smoker": {
+                    "type": "string",
+                    "description": "smoker",
+                    "example": "NONSMOKER/SMOKER"
+                },
+                "ideologies": {
+                    "type": "string",
+                    "description": "ideologies",
+                    "example": "12345"
+                },
+                "setting": {
+                    "type": "object",
+                    "properties":{
+                    "showFullname": {
+                        "type": "string",
+                        "description": "showFullname",
+                        "example": "false"
+                    },
+                    "showDob": {
+                        "type": "string",
+                        "description": "showDob",
+                        "example": "false"
+                    },
+                    "showLocation": {
+                        "type": "string",
+                        "description": "showLocation",
+                        "example": "true"
+                    }
+                 }
+                },
+                "referralCode": {
+                    "type": "string",
+                    "description": "referralCode",
+                    "example": ""
+                },
+                "motherTongue":{
+                    "type": "string",
+                    "description": "referralCode",
+                    "example": "Malayalam"
+                },
+                "hobbies":{
+                    "type": "array",
+                    "example": ["cooking","sss"]
+                    
+                },
+                "profileImage":{
+                    "type": "array",
+                    "example": ["123.jpg"]
+                }
+                
+
+            }
+        },
+
+        "sendOtp": {
+            "type": "object",
+            "properties": {
+                "phoneNumber":{
+                    "type": "string",
+                    "description": "phoneNumber",
+                    "example": "9985858585"
+                },
+                "countryCode":{
+                    "type": "string",
+                    "description": "countryCode",
+                    "example": "+91"
+                }
+            }
+        },
+
+        "verifyOtp": {
+            "type": "object",
+            "properties": {
+                "phoneNumber":{
+                    "type": "string",
+                    "description": "phoneNumber",
+                    "example": "9985858585"
+                },
+                "countryCode":{
+                    "type": "string",
+                    "description": "countryCode",
+                    "example": "+91"
+                },
+                "otp":{
+                    "type": "string",
+                    "description": "otp",
+                    "example": "1234"
+                }
+            }
+        },
+        
+        "responsesOk": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "object"
+                }
+            }
+        },
+        "responsesError": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "error": {
+                    "type": "object"
+                }
+            }
+        },
+        "loginResponseOk": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "example": "VERIFY_OTP",
+                    "description": "If account not verified then rediect user to otp screen and enter OTP send to his phone number"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "object"
+                }
+            }
+        }
+    },
+    "parameters": {
+        "HeaderVersion": {
+            "name": "x-demo-Version",
+            "in": "header",
+            "description": "x-demo-Version",
+            "required": true,
+            "type": "string",
+            "default": "1.0.0"
+        },
+        "HeaderLanguage": {
+            "name": "Accept-Language",
+            "in": "header",
+            "description": "Accept-Language",
+            "required": true,
+            "type": "string",
+            "default": "en"
+        },
+        "HeaderPlatform": {
+            "name": "x-demo-Platform",
+            "in": "header",
+            "description": "android or ios or web",
+            "required": true,
+            "type": "string",
+            "default": "android"
+        },
+        "HeaderAuth": {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization",
+            "required": true,
+            "type": "string"
+        },
+        "HeaderOptionalAuth": {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization",
+            "type": "string"
+        },
+        "HeaderCategory": {
+            "name": "category",
+            "in": "header",
+            "description": "category",
+            "required": true,
+            "type": "string"
+        }
+    }
+}
